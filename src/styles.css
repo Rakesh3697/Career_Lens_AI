@@ -1,0 +1,236 @@
+/* style.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0f172a;
+  color: #fff;
+  /* Ensure smooth scrolling for mobile/touch devices */
+  -webkit-overflow-scrolling: touch;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh; /* Fill viewport height */
+}
+
+/* --- Mobile Optimizations (Below 640px) --- */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem; /* Reduce padding on small screens */
+  }
+
+  header h1 {
+    font-size: 2.25rem; /* Smaller title */
+  }
+
+  /* Stack input and button vertically on tiny screens */
+  form {
+    flex-direction: column;
+    gap: 1rem !important;
+  }
+
+  form input {
+    width: 100%; /* Full width for input */
+    padding: 0.75rem 1.25rem !important;
+  }
+
+  form button {
+    width: 100%; /* Full width for button */
+    padding: 0.75rem 1.25rem !important;
+  }
+
+  /* Stack export buttons on mobile */
+  .export-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .export-container span {
+    margin-right: 0 !important;
+    margin-bottom: 0.5rem;
+  }
+
+  .export-btn {
+    margin-left: 0 !important;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+/* ------------------------------------------- */
+
+header h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+header p {
+  text-align: center;
+  color: #cbd5e1;
+}
+
+input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 999px;
+  background-color: #1e293b;
+  color: #fff;
+  outline: none;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 999px;
+  background-color: #6366f1;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.card {
+  background-color: #1e293b;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+}
+
+.timeline-step {
+  position: relative;
+  margin-left: 1.5rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid #334155;
+  margin-bottom: 2rem;
+}
+
+.timeline-step::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #6366f1;
+  border-radius: 50%;
+  border: 4px solid #0f172a;
+}
+
+/* NEW PDF Instruction Message Style */
+.pdf-message {
+  background-color: #4338ca;
+  color: #eef4ff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+/* --- Export Buttons Styles --- */
+.export-container {
+  display: flex;
+  justify-content: flex-end; /* Align right */
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
+}
+
+.export-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.export-btn:hover {
+  opacity: 0.8;
+}
+
+.json-btn {
+  background-color: #facc15;
+  color: #1e293b;
+}
+
+.md-btn {
+  background-color: #6366f1;
+  color: #fff;
+}
+
+.pdf-btn {
+  background-color: #dc2626;
+  color: #fff;
+}
+
+/* --- Spinner Styles --- */
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Spinner wrapper now centers the whole block (spinner + text) */
+.loading-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4rem auto;
+}
+
+/* The spinning circle (loader) */
+.spinner-circle {
+  width: 80px;
+  height: 80px;
+  border: 8px solid rgba(255, 255, 255, 0.1);
+  border-top: 8px solid #a855f7;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+
+/* The centered text */
+.spinner-text {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Print Styles: Hide UI elements when printing to PDF */
+@media print {
+    /* Hide the form/input area, the export buttons, and the instruction message */
+    form, header p, .export-container, .pdf-message {
+        display: none !important;
+    }
+    /* Set white background and black text for optimal PDF readability */
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+    .card {
+        background-color: #f3f4f6 !important; /* Light background for card content in PDF */
+        border: 1px solid #e5e7eb;
+    }
+    h2, h3, h4 {
+        color: black !important;
+    }
+    /* Ensure links are readable */
+    a {
+        color: #333 !important;
+    }
+}
