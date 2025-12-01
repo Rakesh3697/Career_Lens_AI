@@ -35,7 +35,7 @@ Type any role (e.g., “Frontend Developer”, “Cloud Engineer”, “AI Engin
 ---
 
 ## 📸 Output Preview
-![Screenshot]([https://github.com/Rakesh3697/Career_Lens_AI/blob/main/Career_Lens_AI_Output_Screenshot.jpeg])
+![Screenshot](https://github.com/Rakesh3697/Career_Lens_AI/blob/main/Career_Lens_AI_Output_Screenshot.jpeg)
 
 
 ## 🛠️ Tech Stack
